@@ -17,7 +17,8 @@ import AdminProject from './containers/admin/AdminProject'
 import AdminBlog from './containers/admin/AdminBlog'
 import AdminDashboard from './containers/admin/AdminDashboard'
 import axios from 'axios'
-import Sidebar from './containers/header/Sidebar'
+import Sidebar from './component/Sidebar'
+
 
 
 
@@ -43,8 +44,8 @@ const App = () => {
     <main className='app'>
       <ParticleBg/>
       <BrowserRouter>
-      {/* {auth ? <Sidebar/> : <Header/> } */}
-      <Header/>
+      {auth ? <Sidebar setAuth={setAuth}/> : <Header/> }
+      {/* <Header/> */}
         <Routes>
           <Route path='/login' element = {<Login setAuth={setAuth}/>}/>
           <Route path='/adminDashboard' element={auth ? <AdminDashboard/> : <Login setAuth={setAuth}/>}/>

@@ -20,12 +20,12 @@ const AdminDashboard = () => {
   
 
   return (
-    <div className='dashboard'>
+    <aside className='dashboard'>
       <h1>Welcome to Admin Dashboard</h1>
-      <button onClick={handleLogout} type="button">
+      {/* <button onClick={handleLogout} type="button">
         Logout
-      </button>
-    </div>
+      </button> */}
+    </aside>
   );
 }
 
