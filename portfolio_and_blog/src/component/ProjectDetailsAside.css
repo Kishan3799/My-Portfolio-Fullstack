@@ -1,0 +1,68 @@
+/* Add this to your CSS file */
+.project-details-aside {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    backdrop-filter: blur(10px);
+    background-color: #ffffff11;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .project-details-aside button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: var(--color-white);
+  }
+  
+  .project-details-aside img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .project-details-aside h2 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    color: var(--color-white);
+  }
+  
+  .project-details-aside p {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: var(--color-white);
+  }
+  
+  .project-details-aside .project-links a {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-white);
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    border: 2px solid var(--color-white);
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  
+  .project-details-aside .project-links a:hover {
+    background-color: var(--color-black);
+  }
+  
+    
+  
+    /* Small screen size 600px */
+    @media  screen and (max-width:600px) {
+      .project-details-aside{
+        width: 300px;
+      }
+    }
+  

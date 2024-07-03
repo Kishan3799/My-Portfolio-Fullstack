@@ -1,0 +1,137 @@
+.app_admin_project {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnAddProject {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btnAddProject:hover {
+    background-color: #0056b3;
+}
+
+.form_container {
+    display: block;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.form_container.show {
+    display: block;
+}
+
+.upload_title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.form_group label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form_group input[type="text"],
+.form_group input[type="file"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form_group input[type="file"] {
+    background: white;
+    cursor: pointer;
+}
+
+.tags-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.form_group select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.form_group select:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+.form_group .options {
+   font-size: 1.5rem;
+}
+
+.tag {
+    background-color: #e2e2e2;
+    padding: 5px 10px;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.tag button {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+input[type="text"]::placeholder {
+    font-style: italic;
+}
+
+.form_group button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.form_group button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .form_container {
+        width: 90%;
+    }
+}

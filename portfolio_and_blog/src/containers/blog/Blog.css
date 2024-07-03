@@ -1,0 +1,127 @@
+.app__blog{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    align-items: center;
+}
+.app__blog_titile {
+    text-align: center;
+    margin-block: 1rem; 
+} 
+
+/*==================================== blog Item card ============================================================*/
+.app__blog-post-card{
+    width: 70%;
+    display: flex;
+    flex-basis: 30%;
+    /* grid-template-columns: 1fr 2fr; */
+    justify-content: start;
+    column-gap: 3rem;
+    /* align-content: flex-start; */
+    align-items: start;
+    background-color: #b2b2b21f;
+    backdrop-filter: blur(7px);
+    border-radius: 1.8rem;
+    margin: 1rem;
+    padding: 3rem;
+    max-width: 70%;
+    border: 2px solid silver;
+}
+
+.app__blog-post-image{
+    display: flex;
+    flex-basis: 30%;
+    flex-shrink: -1;
+}
+.app__blog-post-image img{
+  
+    border-radius: 1.4rem;
+}
+.app__blog-post_content{
+    width: 90%;
+}
+.app__blog-post-title{
+    font-size: 2.5rem;
+}
+
+.app__blog-post-author{
+    font-size: 1.2rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.app__blog-post-summary{
+    font-size: 2rem;
+    font-weight:var(--font-medium);
+}
+
+
+
+.app__button-read-more{
+    font-size: 1.8rem;
+    text-decoration: none;
+    box-shadow: 0 0 0 1px var(--color-black) inset;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+    color: black;
+    transition: 0.2s ease-in-out;
+}
+
+
+
+.app__button-read-more:hover{
+   color: var(--color-white);
+   background-color: var(--color-black);
+}
+
+@media screen and (max-width: 1000px) {
+    .app__blog-post-card{
+        flex-direction: column;
+        justify-content: center;
+        /* overflow: hidden; */
+        padding: auto;
+    }
+}
+
+/*======================================= blog Item Card End==================================== */
+
+
+/*============================================ BLOG CONTENT START =================================================*/
+
+.app_blog_content{
+    /* background-color: rgba(10, 156, 156, 0.311); */
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 10rem;
+    padding: 1.6rem;
+    border: 2px solid hsla(0, 0%, 59%, 0.427);
+    border-radius: 2.4rem;
+    backdrop-filter: blur(12px);
+    z-index: -1;
+}
+
+.blog_intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog_intro h1 {
+    font-size: 3rem;
+}
+
+.blog_intro p {
+    font-size: 1.5rem;
+    font-weight: var(--font-semi-bold);
+}
+
+.blog_content h2 {
+    font-size: 2rem;
+}
+
+.blog_content p {
+    font-size: 1.6rem;
+    font-weight: var(--font-medium);
+}

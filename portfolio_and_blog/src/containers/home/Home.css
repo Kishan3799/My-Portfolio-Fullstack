@@ -1,0 +1,81 @@
+.app__hero-section {
+    /* background: url('../../assets/cool-background.png')  no-repeat center fixed;
+    background-size: cover; */
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black); /* Adjust text color for readability */
+    padding: 1rem;
+  }
+  
+  .hero-content {
+    text-align: center;
+    margin-top: 10rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    font-weight: var(--font-bold);
+    
+  }
+
+  h1{
+    font-size: 5rem;
+    font-weight: var(--font-extra-bold);
+    font-style: italic;
+  }
+
+  p{
+    font-size: 3.5rem;
+  }
+
+  .cta-button {
+    color: var(--color-black);
+    padding-inline: 5rem;
+    background: none;
+    padding-block: 1rem;
+    font-size: 1.8rem;
+    font-weight: var(--font-medium);
+    border: 2px solid var(--color-black);
+    border-radius: 3rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.7rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+
+  .cta-button:hover{
+    background-color: var(--color-black);
+    color: var(--color-white); 
+  }
+
+  @media  screen and (max-width:300px) {
+    h1{
+      font-size:3.5rem;
+    }
+    h2{
+      font-size: 1.8rem;
+    }
+    P{
+      font-size: 2.1rem;
+    }
+  }
+
+  @media screen and (max-width:600px) {
+    h1{
+      font-size:4rem;
+    }
+    h2{
+      font-size: 2.5rem;
+    }
+    P{
+      font-size: 2.1rem;
+    }
+  }
+
+
+  
