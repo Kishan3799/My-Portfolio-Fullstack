@@ -41,7 +41,7 @@ const AdminBlog = () => {
   };
 
   return (
-    <div className="app_admin_blog container">
+    <div className="app_admin_blog ">
       <h1 className="blogHeading">Upload Blog</h1>
       <div className="blog_form_container">
         <form className="form_group" onSubmit={handleSubmitForm}>

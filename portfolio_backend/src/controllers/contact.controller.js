@@ -37,7 +37,18 @@ const createContact = asyncHandler(async (req, res) => {
     );
 });
 
+const getAllContact = asyncHandler(async (req,res)=> {
+    const contacts = await Contact.find({}).sort({createdAt:-1})
+
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(200, contacts, "Fetch all projects successfully")
+        )
+})
+
 
 export { 
-    createContact
+    createContact,
+    getAllContact
 }

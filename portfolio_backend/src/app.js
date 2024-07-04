@@ -47,6 +47,7 @@ app.use("/api/v1/projects", projectRouter)
 app.use("/api/v1/blogs", blogRouter)
 
 // http://localhost:8000/api/v1/contact
+// http://localhost:8000/api/v1/all_contact
 app.use("/api/v1", contactRouter)
 
 

@@ -82,19 +82,9 @@ const AdminProject = () => {
   };
 
   return (
-    <div className="app_admin_project container">
-      {/* <div>
-        <button
-          className="btnAddProject"
-          onClick={() =>
-            document.querySelector(".form_container").classList.toggle("show")
-          }
-        >
-          Add Project
-        </button>
-      </div> */}
+    <div className="app_admin_project">
+       <h1 className="upload_title">Upload Project</h1>
       <div className="form_container">
-        <h1 className="upload_title">Upload Project</h1>
         <form className="form_group" onSubmit={handleOnSubmit}>
           <label htmlFor="projectTitle">Project Title</label>
           <input

@@ -1,14 +1,15 @@
 .app_admin_about {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  margin-left: 250px;
+  height: 100vh;
   
 }
 
 .about_form_container {
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
   padding: 2rem;
   border: 2px solid #c9c9c9;
   border-radius: 10px;
@@ -17,11 +18,10 @@
 }
 
 .heading {
-  font-size: 2.4rem;
+  font-size: 3.4rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  text-align: center;
-  color: #333;
+  color: #000000;
 }
 
 .about_form-group {
@@ -43,17 +43,17 @@
 .upload-btn {
   cursor: pointer;
   display: inline-block;
-  background-color: #007bff;
+  background-color: #000000;
   color: #fff;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 4px;
   transition: background-color 0.3s;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .upload-btn:hover {
-  background-color: #0056b3;
+  background-color: #404040;
 }
 
 .preview-container {
@@ -76,12 +76,12 @@
   padding: 0.75rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   transition: border-color 0.3s;
 }
 
 .about_bio_textarea:focus {
-  border-color: #007bff;
+  border-color: #161616;
   outline: none;
 }
 
@@ -90,15 +90,15 @@
   display: block;
   width: 100%;
   padding: 0.75rem;
-  background-color: #28a745;
+  background-color: #000000;
   color: #fff;
   border: none;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   transition: background-color 0.3s;
 }
 
 .submit-btn:hover {
-  background-color: #218838;
+  background-color: #535353;
 }

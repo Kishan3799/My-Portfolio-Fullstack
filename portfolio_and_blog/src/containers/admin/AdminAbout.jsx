@@ -33,9 +33,10 @@ const AdminAbout = () => {
   };
 
   return (
-    <section className="app_admin_about container">
+    <section className="app_admin_about ">
+     <h1 className="heading">Upload Profile</h1>
       <div className="about_form_container">
-        <h1 className="heading">Upload Profile</h1>
+       
         <form onSubmit={handleSubmit}>
           <div className="about_form-group">
             <label htmlFor="image" className="label">

@@ -1,6 +1,5 @@
 .app_admin_project {
-    margin: auto;
-    width: 100%;
+    margin-left: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +26,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 600px;
+    width: 800px;
     margin-top: 20px;
     transition: all 0.3s ease;
 }
@@ -37,9 +36,9 @@
 }
 
 .upload_title {
-    color: #333;
-    text-align: center;
+    color: #000000;
     margin-bottom: 20px;
+    font-size: 3.4rem;
 }
 
 .form_group {
@@ -51,7 +50,7 @@
 
 .form_group label {
     font-size: 16px;
-    color: #555;
+    color: #3e3e3e;
     margin-bottom: 5px;
 }
 
@@ -71,14 +70,14 @@
 .tags-input-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
 }
 
 .form_group select {
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 15px;
 }
 .form_group select:focus {
     outline: none;
@@ -91,10 +90,12 @@
 
 .tag {
     background-color: #e2e2e2;
-    padding: 5px 10px;
+    padding: 5px 15px;
     border-radius: 16px;
     display: inline-flex;
     align-items: center;
+    font-size: 2rem;
+    font-weight:var(--font-bold);
 }
 
 .tag button {
@@ -117,9 +118,10 @@ input[type="text"]::placeholder {
 
 .form_group button {
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: #000000;
     color: white;
     border: none;
+    font-size: 1.5rem;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -127,7 +129,7 @@ input[type="text"]::placeholder {
 }
 
 .form_group button:hover {
-    background-color: #0056b3;
+    background-color: #424242;
 }
 
 @media (max-width: 768px) {
