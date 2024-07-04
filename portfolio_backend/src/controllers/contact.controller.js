@@ -43,7 +43,7 @@ const getAllContact = asyncHandler(async (req,res)=> {
     return res
         .status(200)
         .json(
-            new ApiResponse(200, contacts, "Fetch all projects successfully")
+            new ApiResponse(200, contacts, "Fetch all contacts successfully")
         )
 })
 
