@@ -162,7 +162,27 @@ const getProjectById = asyncHandler(async (req, res) => {
         );
 });
 
+// DELETE REQUEST FOR SINGLE PROJECT USING PROJECT ID
+const deleteProjectById = asyncHandler(async (req, res) => {
+    const projectId = req.params.id;
+    const projectById = await Project.findByIdAndDelete(projectId);
+
+    if (!projectById) {
+        throw new ApiError("404", "Project not found");
+    }
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            projectById,
+            "Project delete successfully"
+        )
+    );
+
+})
 
 
 
-export { createProject, getAllProjects, getProjectById, updateProject };
+export { createProject, getAllProjects, getProjectById, updateProject, deleteProjectById };

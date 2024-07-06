@@ -1,0 +1,71 @@
+/* ProjectTable.css */
+
+.project-table-container {
+    padding: 20px;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 100%;
+  }
+  
+  .project-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  .project-table th, .project-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .project-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .project-table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .project-table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .project-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-button, .delete-button {
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .edit-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .edit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #e53935;
+  }
+  

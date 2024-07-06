@@ -38,6 +38,8 @@ app.use("/api/v1/about", aboutRouter)
 // http://localhost:8000/api/v1/projects/project/id
 // http://localhost:8000/api/v1/projects/update_project/id
 // http://localhost:8000/api/v1/projects/all_projects
+// http://localhost:8000/api/v1/projects/delete_project/:id
+
 app.use("/api/v1/projects", projectRouter)
 
 // http://localhost:8000/api/v1/blogs/create_blog

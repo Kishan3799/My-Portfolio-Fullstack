@@ -30,7 +30,7 @@ const Login = ({ setAuth }) => {
   };
 
   return (
-    <section className="app_login container">
+    <section className="app_login">
       <div className='login_box'>
         <h2>Login</h2>
         {error && <p className="error_message">{error}</p>}

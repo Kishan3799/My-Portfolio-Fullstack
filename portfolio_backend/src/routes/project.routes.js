@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createProject, updateProject, getAllProjects, getProjectById} from "../controllers/project.controller.js";
+import { createProject, updateProject, getAllProjects, getProjectById, deleteProjectById} from "../controllers/project.controller.js";
 import { upload } from "../middlewares/multer.middleware.js"
 import { verifyJwt } from "../middlewares/auth.middleware.js";
 
@@ -42,6 +42,9 @@ router.route("/all_projects").get(getAllProjects);
 
 //GET REQUEST FOR PROJECT BY ID LOGIN IS NOT REQUIRED
 router.route("/project/:id").get(getProjectById);
+
+//DELETE REQUEST FOR PROJECT BY ID LOGIN IS REQUIRED
+router.route("/delete_project/:id").delete(verifyJwt, deleteProjectById)
 
 //Get All Project no login required
 export default router

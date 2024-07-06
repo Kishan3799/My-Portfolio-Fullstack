@@ -1,0 +1,43 @@
+.contact-table-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 100%;
+    margin-top: 20px;
+  }
+  
+  .contact-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .contact-table th, .contact-table td {
+    font-size: 1.5rem;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .contact-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .contact-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .contact-table-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .contact-table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .contact-table-container::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  .contact-table-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

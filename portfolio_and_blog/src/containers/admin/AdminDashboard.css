@@ -1,8 +1,43 @@
 .dashboard {
-    width: 100%;
+    width: calc(100% - 250px); 
     height: 100vh;
     margin-left: 250px;
     padding-left: 10px;
     display: flex;
+    flex-direction: column;
+}
+
+.contact_table_card {
+    background: #ffffff60;
+    width: 50%;
+    height: 50%;
+    border: 1px solid gray;
+    padding: 8px;
+    border-radius: 10px;
+    backdrop-filter: blur(7px);
+    overflow: hidden;
+    margin: 20px;
+}
+
+.contact_table_card h3 {
+    font-size: 2rem;
+    font-weight: var(--font-bold);
+}
+
+.project-table-card {
+    background: #ffffff60;
+    width: 50%;
+    height: 50%;
+    border: 1px solid gray;
+    padding: 8px;
+    border-radius: 10px;
+    backdrop-filter: blur(7px);
+   overflow: hidden;
+   margin: 20px;
+}
+
+.project-table-card h3{
+    font-size: 2rem;
+    font-weight: var(--font-bold);
 }
 
