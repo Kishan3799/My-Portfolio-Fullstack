@@ -46,6 +46,7 @@ app.use("/api/v1/projects", projectRouter)
 // http://localhost:8000/api/v1/blogs/blog/id
 // http://localhost:8000/api/v1/blogs/update_blog/id
 // http://localhost:8000/api/v1/blogs/all_blogs
+// http://localhost:8000/api/v1/blogs/delete-blog/id
 app.use("/api/v1/blogs", blogRouter)
 
 // http://localhost:8000/api/v1/contact

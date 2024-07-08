@@ -109,10 +109,31 @@ const updateBlogById = asyncHandler(async(req, res)=>{
     
 });
 
+// DELETE REQUEST FOR DELETING BLOG BY ID
+const  deleteBlogById = asyncHandler(async (req, res) => {
+    const blog = req.params.id;
+    const blogById = await Blog.findByIdAndDelete(blog);
+
+    if (!blogById) {
+        throw new ApiError("404", "Project not found");
+    }
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            blogById,
+            "Blog delete successfully"
+        )
+    );
+
+})
 
 export { 
     createBlog, 
     getAllBlogs,
     getBlogById,
-    updateBlogById
+    updateBlogById,
+    deleteBlogById
 }

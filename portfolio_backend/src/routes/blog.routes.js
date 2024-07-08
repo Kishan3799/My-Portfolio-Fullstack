@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { upload } from "../middlewares/multer.middleware.js"
 import { verifyJwt } from "../middlewares/auth.middleware.js";
-import { getAllBlogs , getBlogById, createBlog, updateBlogById} from "../controllers/blog.controller.js";
+import { getAllBlogs , getBlogById, createBlog, updateBlogById, deleteBlogById} from "../controllers/blog.controller.js";
 
 const router = new Router();
 
@@ -28,6 +28,9 @@ router.route("/update_blog/:id").put(
         { name : "blog_cover_image", maxCount:1 },
     ]),
     updateBlogById)
+
+// DELETE REQUEST --- DELETING CURRENT BLOG BI ID --- //// LOGIN REQUIRED \\\\
+router.route("/delete-blog/:id").delete(verifyJwt, deleteBlogById)
 
 
 export default router
