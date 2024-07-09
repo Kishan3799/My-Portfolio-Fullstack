@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createAboutDetail, editDescription, updateProfileImage, getaboutDetail } from "../controllers/about.controller.js";
+import { createAboutDetail, editDescription, updateProfileImage, getaboutDetail , deleteAboutMe} from "../controllers/about.controller.js";
 import { upload } from "../middlewares/multer.middleware.js"
 import { verifyJwt } from "../middlewares/auth.middleware.js";
 
@@ -29,5 +29,8 @@ router.route("/update_profile_picture/:id").patch(
 
 //get about detail
 router.route("/get_about_detail").get(getaboutDetail)
+
+// detete about detail
+router.route("/delete-about-detail/:id").delete(verifyJwt, deleteAboutMe)
 
 export default router

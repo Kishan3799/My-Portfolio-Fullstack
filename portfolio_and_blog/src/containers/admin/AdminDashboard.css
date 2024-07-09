@@ -9,7 +9,7 @@
 
 .contact_table_card {
     background: #ffffff60;
-    width: 50%;
+    width: calc(100% - 250px); ;
     height: 50%;
     border: 1px solid gray;
     padding: 8px;
@@ -26,7 +26,7 @@
 
 .project-table-card {
     background: #ffffff60;
-    width: 50%;
+    width: calc(100% - 250px); ;
     height: 50%;
     border: 1px solid gray;
     padding: 8px;
@@ -43,7 +43,7 @@
 
 .blog-table-card {
     background: #ffffff60;
-    width: 90%;
+    width: calc(100% - 250px); ;
     height: 50%;
     border: 1px solid gray;
     padding: 8px;

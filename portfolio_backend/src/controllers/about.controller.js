@@ -2,7 +2,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { About } from "../models/about.model.js"
-import { uploadOnCloudinary } from "../utils/cloudinary.js"
+import { deleteImageFromCloudinary, uploadOnCloudinary } from "../utils/cloudinary.js"
 
 //creating about Detail with image and Description
 const createAboutDetail = asyncHandler(async (req,res) => {
@@ -106,10 +106,37 @@ const getaboutDetail = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, about, "Current user fetched successfully"))
 })
 
+//Deleting About me 
+const deleteAboutMe = asyncHandler(async (req, res)=> {
+    const id = req.params.id
+    const aboutById = await About.findById(id)
+
+    if(!aboutById) {
+        throw new ApiError("404", "About detail not found");
+    }
+
+    const publid_id = aboutById.profileImage.split('/').pop().split('.')[0];
+
+    await deleteImageFromCloudinary(publid_id)
+
+    await About.findByIdAndDelete(id)
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            aboutById,
+            "About detail delete successfully"
+        )
+    );
+})
+
 
 export {
     createAboutDetail,
     editDescription,
     updateProfileImage,
-    getaboutDetail
+    getaboutDetail,
+    deleteAboutMe
 }

@@ -32,6 +32,7 @@ app.use("/api/v1/admin_user", userRouter)
 // http://localhost:8000/api/v1/about/edit_about_detail
 // http://localhost:8000/api/v1/about/update_profile_picture
 // http://localhost:8000/api/v1/about/get_about_detail
+// http://localhost:8000/api/v1/about/delete-about-detail
 app.use("/api/v1/about", aboutRouter)
 
 // http://localhost:8000/api/v1/projects/create_project

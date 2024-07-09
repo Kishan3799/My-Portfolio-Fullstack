@@ -102,3 +102,41 @@
 .submit-btn:hover {
   background-color: #535353;
 }
+
+.about_detail_card{
+  margin-top: 20px;
+  width: 63%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  border: 2px solid #c9c9c9;
+}
+
+.about_detail_card img {
+  width: 200px;
+  margin-bottom: 10px;
+}
+.about_detail_card p {
+  font-size: 1.3rem;
+}
+
+.delete_button{
+  font-size: 1.5rem;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #ff0000;
+  color: var(--color-white);
+  transition: background-color 0.3s;
+  padding: 5px 15px;
+}
+
+.delete_button:hover{
+  background-color: #e53935;;
+}
+
+
