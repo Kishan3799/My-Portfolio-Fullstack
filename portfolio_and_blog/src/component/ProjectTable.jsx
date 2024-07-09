@@ -9,7 +9,7 @@ const ProjectTable = () => {
         const fetchProjects = async ()=> {
             try {
                 const response = await axios.get('/api/v1/projects/all_projects');
-                console.log(response.data.data)
+                console.log(response.data.data[0].project_image[0].split('/').pop().split('.')[0])
                 setProjects(response.data.data)
             } catch (error) {
                 console.log(error)
@@ -40,7 +40,7 @@ const ProjectTable = () => {
           </tr>
         </thead>
         <tbody>
-            {projects.map((project, index)=>(
+            {projects.length > 0 ? ( projects.map((project, index)=>(
             <tr key={index}>
             <td>
               <img src={project.project_image[0]} loading="lazy" alt="Project 1" className="project-image" />
@@ -52,7 +52,7 @@ const ProjectTable = () => {
               </div>
             </td>
           </tr>
-        ))}
+        ))) : <p>NO project available</p>}
         </tbody>
       </table>
     </div>

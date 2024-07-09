@@ -2,7 +2,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Blog } from "../models/blog.model.js";
-import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { uploadOnCloudinary, deleteImageFromCloudinary } from "../utils/cloudinary.js";
 
 //GET REQUEST FOR GETTING ALL BLOG
 const getAllBlogs = asyncHandler( async (req, res)=>{
@@ -111,12 +111,18 @@ const updateBlogById = asyncHandler(async(req, res)=>{
 
 // DELETE REQUEST FOR DELETING BLOG BY ID
 const  deleteBlogById = asyncHandler(async (req, res) => {
-    const blog = req.params.id;
-    const blogById = await Blog.findByIdAndDelete(blog);
+    const blogId = req.params.id;
+    const blogById = await Blog.findById(blogId)
 
     if (!blogById) {
         throw new ApiError("404", "Project not found");
     }
+
+    const publid_id = blogById.blog_cover_image.split('/').pop().split('.')[0];
+
+    await deleteImageFromCloudinary(publid_id);
+
+    await Blog.findByIdAndDelete(blogId)
 
     return res
     .status(200)

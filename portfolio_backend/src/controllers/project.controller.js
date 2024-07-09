@@ -2,7 +2,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Project } from "../models/project.model.js";
-import { uploadOnCloudinary } from "../utils/cloudinary.js";
+import { deleteImageFromCloudinary, uploadOnCloudinary } from "../utils/cloudinary.js";
 
 //POST REQUEST FOR CREATE PROJECT -- LOGIN IS REQUIRED --
 const createProject = asyncHandler(async (req, res) => {
@@ -165,11 +165,17 @@ const getProjectById = asyncHandler(async (req, res) => {
 // DELETE REQUEST FOR SINGLE PROJECT USING PROJECT ID
 const deleteProjectById = asyncHandler(async (req, res) => {
     const projectId = req.params.id;
-    const projectById = await Project.findByIdAndDelete(projectId);
+    const projectById = await Project.findById(projectId);
 
     if (!projectById) {
         throw new ApiError("404", "Project not found");
     }
+
+    const public_id = projectById.project_image[0].split('/').pop().split('.')[0];
+
+    await deleteImageFromCloudinary(public_id);
+
+    await Project.findByIdAndDelete(projectId);
 
     return res
     .status(200)

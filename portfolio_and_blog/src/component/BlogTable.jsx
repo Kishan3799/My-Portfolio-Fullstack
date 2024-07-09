@@ -9,7 +9,7 @@ const BlogTable = () => {
     const fetchBlog = async () => {
       try {
         const response = await axios.get("/api/v1/blogs/all_blogs");
-        console.log(response.data.data);
+        console.log(response.data.data[0].blog_cover_image.split('/').pop().split('.')[0]);
         setBlogs(response.data.data);
       } catch (error) {
         console.log(error);
@@ -40,10 +40,10 @@ const BlogTable = () => {
           </tr>
         </thead>
         <tbody>
-          {blogs.map((blog, index) => (
+          {blogs.length > 0 ? (blogs.map((blog, index) => (
             <tr key={index}>
               <td>
-                <img className="blog-image" src={blog.blog_cover_image} loading="lazy" alt="BlogImage" />
+                <img className="blog-image" src={blog.blog_cover_image} loading="lazy" alt={blog.blog_cover_image} />
               </td>
               <td>{blog.blog_title}</td>
               <td>
@@ -52,7 +52,7 @@ const BlogTable = () => {
                 </div>
               </td>
             </tr>
-          ))}
+          ))) : <p>No Blogs available</p>}
         </tbody>
       </table>
     </div>
