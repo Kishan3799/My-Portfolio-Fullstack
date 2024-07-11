@@ -1,3 +1,9 @@
+.container h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-style: normal;
+    
+}
 
 .app__about-section {
     display: flex;
@@ -9,6 +15,8 @@
     /* background: url('../../assets/cool-background.png')  no-repeat center fixed;
     background-size: cover; */
 }
+
+
 
 .app__about-profile-picture{
     flex: 1;
@@ -32,11 +40,11 @@
     flex: 2;
 }
 
-.app__about-content h1{
+/* .app__about-content h1{
     text-align: left;
     font-style: normal;
     font-weight: var(--font-bold);
-}
+} */
 
 .app__about-content p{
     font-size: 2rem;

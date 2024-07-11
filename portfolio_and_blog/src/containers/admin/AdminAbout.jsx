@@ -29,6 +29,7 @@ const AdminAbout = () => {
           'Content-Type': 'multipart/form-data'
         },
       });
+      alert("Bio is added successfully")
       console.log("Bio is added Successfully:", response.data)
       
     } catch (error) {

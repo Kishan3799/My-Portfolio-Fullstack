@@ -66,7 +66,7 @@ const AdminProject = () => {
             'Content-Type': 'multipart/form-data'
           },
         })
-
+        alert("Project is added successfully")
         console.log("Project is Added Successfully", response.data);
         setDesc("")
         setGitLInk("")

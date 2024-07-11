@@ -5,6 +5,8 @@
 .app__project_title{
     padding-top: 1rem;
     text-align: center;
+    font-size: 3rem;
+    font-weight: var(--font-bold);
 } 
 
 .app__project-filters{
@@ -37,6 +39,10 @@
     padding: 1rem;
     justify-content: center;
     margin-inline: 1rem;
+}
+
+.app__project-portfolio p {
+    font-size: 2rem;
 }
 
 .app__project-card{

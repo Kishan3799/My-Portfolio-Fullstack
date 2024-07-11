@@ -7,8 +7,13 @@
 .app__blog_titile {
     text-align: center;
     margin-block: 1rem; 
+    font-size: 3rem;
+    font-weight: var(--font-bold);
 } 
 
+.app__blog p {
+    font-size: 2rem;
+}
 /*==================================== blog Item card ============================================================*/
 .app__blog-post-card{
     width: 70%;

@@ -1,6 +1,7 @@
 
 .contact_heading{
     text-align: center;
+    font-weight: var(--font-bold);
 }
 
 .form_content{

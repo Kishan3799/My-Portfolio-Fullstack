@@ -34,6 +34,7 @@ const AdminBlog = () => {
           'Content-Type': 'multipart/form-data'
         }
       })
+      alert("Blog is created successfully")
       console.log("Blog is created successfully", respnse);
     } catch (error) {
       console.log(error)

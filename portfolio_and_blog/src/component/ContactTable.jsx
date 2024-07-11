@@ -28,12 +28,12 @@ const ContactTable = () => {
           </tr>
         </thead>
         <tbody>
-          {contacts.map((contact, index) => (
+          {contacts.length > 0 ? (contacts.map((contact, index) => (
             <tr key={index}>
               <td>{contact.name}</td>
               <td>{contact.email}</td>
             </tr>
-          ))}
+          ))) : <p>No contacts here</p>}
         </tbody>
       </table>
     </div>
