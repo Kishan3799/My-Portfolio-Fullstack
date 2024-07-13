@@ -44,8 +44,8 @@ const App = () => {
     <main className='app'>
       <ParticleBg/>
       <BrowserRouter>
-      {auth ? <Sidebar setAuth={setAuth}/> : <Header/> }
-      {/* <Header/> */}
+      {auth && <Sidebar setAuth={setAuth} />}
+      {!auth && <Header />}
         <Routes>
           <Route path='/login' element = {<Login setAuth={setAuth}/>}/>
           <Route path='/adminDashboard' element={auth ? <AdminDashboard/> : <Login setAuth={setAuth}/>}/>
