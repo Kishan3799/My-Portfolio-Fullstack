@@ -14,7 +14,7 @@ const Login = ({ setAuth }) => {
     try {
       if (email && password) {
         const response = await axios.post(
-          "/api/v1/admin_user/login",
+          `${import.meta.env.VITE_BASE_URL}/api/v1/admin_user/login`,
           { email, password },
           { withCredentials: true }
         );

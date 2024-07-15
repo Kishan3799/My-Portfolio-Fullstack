@@ -10,7 +10,7 @@ const Sidebar = ({setAuth}) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/api/v1/admin_user/logout", {}, { withCredentials: true });
+      await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/admin_user/logout`, {}, { withCredentials: true });
       setAuth(false)
       alert("Logout successfully");
       navigate("/")

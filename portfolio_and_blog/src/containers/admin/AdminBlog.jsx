@@ -29,7 +29,7 @@ const AdminBlog = () => {
     formData.append('blog_cover_image', blogImage)
 
     try {
-      const respnse = await axios.post("/api/v1/blogs/create_blog", formData, {
+      const respnse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/create_blog`, formData, {
         headers : { 
           'Content-Type': 'multipart/form-data'
         }

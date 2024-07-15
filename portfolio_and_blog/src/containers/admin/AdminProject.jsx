@@ -61,7 +61,7 @@ const AdminProject = () => {
 
     try {
 
-        const response = await axios.post("/api/v1/projects/create_project", formData, {
+        const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/projects/create_project`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           },

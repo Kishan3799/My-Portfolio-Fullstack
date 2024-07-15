@@ -12,7 +12,7 @@ const Project = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get("/api/v1/projects/all_projects");
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/projects/all_projects`);
         console.log(response.data.data);
         if (response.data && Array.isArray(response.data.data)) {
           setProjects(response.data.data);

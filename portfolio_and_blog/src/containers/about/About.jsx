@@ -11,7 +11,7 @@ const About = () => {
   useEffect(() => {
     const setAboutDescription = async () => {
       try {
-        const response = await axios.get("/api/v1/about/get_about_detail", {
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/about/get_about_detail`, {
           withCredentials: true,
         });
         console.log();
