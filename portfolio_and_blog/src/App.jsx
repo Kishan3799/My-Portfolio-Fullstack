@@ -20,8 +20,6 @@ import axios from 'axios'
 import Sidebar from './component/Sidebar'
 
 
-
-
 const App = () => {
   const [auth , setAuth] = useState(false);
 
