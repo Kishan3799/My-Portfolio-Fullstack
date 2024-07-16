@@ -19,6 +19,9 @@ import AdminDashboard from './containers/admin/AdminDashboard'
 import axios from 'axios'
 import Sidebar from './component/Sidebar'
 
+// Set Axios defaults
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
+axios.defaults.withCredentials = true;
 
 const App = () => {
   const [auth , setAuth] = useState(false);
