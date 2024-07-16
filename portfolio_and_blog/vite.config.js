@@ -8,11 +8,7 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       proxy: {
-        '/api': {
-          target: env.VITE_BASE_URL,
-          changeOrigin: true,
-          secure: false,
-        },
+        '/api': JSON.stringify(env.VITE_BASE_URL)
       },
     },
     plugins: [react()],
