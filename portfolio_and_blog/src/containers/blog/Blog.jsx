@@ -10,7 +10,7 @@ const Blog = () => {
   useEffect(()=> {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/all_blogs`);
+        const response = await axios.get('/api/v1/blogs/all_blogs');
         console.log(response.data.data)
         if (response.data && Array.isArray(response.data.data)) {
           setBlogs(response.data.data);

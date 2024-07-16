@@ -8,7 +8,7 @@ const ContactTable = () => {
     useEffect(()=> {
         const fetchContact = async ()=> {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/all_contact`);
+                const response = await axios.get('/api/v1/all_contact');
                 setContacts(response.data.data)
             } catch (error) {
                 console.log(error)
