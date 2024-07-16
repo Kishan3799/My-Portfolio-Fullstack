@@ -43,6 +43,11 @@ const Navbar = () => {
                 contact
               </NavLink>
             </li>
+            <li className="nav__items">
+              <NavLink to="./login" className="nav__links">
+               Login
+              </NavLink>
+            </li>
           </ul>
 
           <div className="app__menu_toggle_buttons">
@@ -63,7 +68,7 @@ const Navbar = () => {
             {toggle && (
               <div className="app__navigation_menu">
                 <ul className="app__nav_menu_list">
-                  {["about", "project", "blog", "contact"].map((item) => (
+                  {["about", "project", "blog", "contact", "login"].map((item) => (
                     <li key={item} className="app__nav_menu_item">
                       <NavLink to={`${item}`} className={"app__nav_menu_links"}>
                         {item}
