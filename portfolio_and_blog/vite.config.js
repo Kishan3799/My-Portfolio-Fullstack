@@ -9,9 +9,9 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         '/api': {
-          target: env.VITE_BASE_URL,
+          target: 'https://my-portfolio-fullstack-backend.onrender.com',
           changeOrigin: true,
-          secure: false,
+          rewrite: (path) => path.replace(/^\/api/, '/api')
         },
       },
     },
