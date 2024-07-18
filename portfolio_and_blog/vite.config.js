@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       proxy: {
-        '/api': {
+        '/api/v1': {
           target: 'https://my-portfolio-fullstack-backend.onrender.com',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '/api')
