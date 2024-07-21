@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser'
 const app = express()
 
 const crossOptions = {
+    allowedHeaders:['X-Requested-With', 'X-HTTP-Method-Override', 'Content-Type', 'Accept'],
+    methods:['GET', 'POST', 'PUT','DELETE','OPTIONS', 'PATCH'],
     origin:process.env.CORS_ORIGIN,
     credentials: true,
     optionsSuccessStatus: 200,
