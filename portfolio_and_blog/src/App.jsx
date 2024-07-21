@@ -26,7 +26,7 @@ const App = () => {
   useEffect(()=>{
     const checkAuth = async()=> {
       try{
-       await axios.get(`/api/v1/admin_user/isLoggedIn`, {withCredentials:true});
+       await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/admin_user/isLoggedIn`, {withCredentials:true});
       //  console.log(response.data)
         setAuth(true);
       }catch(err){

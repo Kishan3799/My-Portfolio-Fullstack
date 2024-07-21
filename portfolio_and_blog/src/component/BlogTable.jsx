@@ -8,7 +8,7 @@ const BlogTable = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get('/api/v1/blogs/all_blogs');
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/all_blogs`);
         console.log(response.data.data[0].blog_cover_image.split('/').pop().split('.')[0]);
         setBlogs(response.data.data);
       } catch (error) {
@@ -20,7 +20,7 @@ const BlogTable = () => {
 
   const handleDeleteBlog = async(blogId) => {
     try {
-        await axios.delete(`/api/v1/blogs/delete-blog/${blogId}`)
+        await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/delete-blog/${blogId}`)
         setBlogs(blogs.filter((blog)=>blog._id !== blogId))
         alert('Blog delete successfully');
     } catch (error) {

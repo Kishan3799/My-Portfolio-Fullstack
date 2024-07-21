@@ -14,7 +14,7 @@ const Contact = () => {
     formData.append('userEmail', userEmail);
     formData.append('userMessage', userMessage);
     try {
-      const response = await axios.post('/api/v1/contact', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/contact`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

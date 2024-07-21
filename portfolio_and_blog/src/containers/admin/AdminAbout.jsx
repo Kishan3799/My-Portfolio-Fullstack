@@ -24,7 +24,7 @@ const AdminAbout = () => {
     formData.append('profileImage', image);
     formData.append('aboutDescription', bio);
     try {
-      const response = axios.post('/api/v1/about/add_about', formData, {
+      const response = axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/about/add_about`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -40,7 +40,7 @@ const AdminAbout = () => {
   useEffect(() => {
     const setAboutDescription = async () => {
       try {
-        const response = await axios.get('/api/v1/about/get_about_detail', {
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/about/get_about_detail`, {
           withCredentials: true,
         });
         console.log();
@@ -58,7 +58,7 @@ const AdminAbout = () => {
 
   const handleDeleteAboutDetail = async (id) => {
     try {
-      await axios.delete(`/api/v1/about/delete-about-detail/${id}`)
+      await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/v1/about/delete-about-detail/${id}`)
       alert("About Delete Successfully")
     } catch (error) {
       console.log(error)
