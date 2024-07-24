@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BlogTable.css";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const BlogTable = () => {
   const [blogs, setBlogs] = useState([]);
@@ -8,8 +9,8 @@ const BlogTable = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/all_blogs`);
-        console.log(response.data.data[0].blog_cover_image.split('/').pop().split('.')[0]);
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/all_blogs`,{withCredentials:true});
+        // console.log(response.data.data[0].blog_cover_image.split('/').pop().split('.')[0]);
         setBlogs(response.data.data);
       } catch (error) {
         console.log(error);
@@ -19,13 +20,25 @@ const BlogTable = () => {
   }, []);
 
   const handleDeleteBlog = async(blogId) => {
+    const deletePromise = axios.delete(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/delete-blog/${blogId}`, {withCredentials:true})
+    toast.promise(
+      deletePromise,
+      {
+        pending:"Deleting in...",
+        success:"Blog delete successfully",
+        error:{
+          render({data}){
+            return data.response?.data?.message || "Failed to delete blog"
+          }
+        }
+      }
+    );
+   
     try {
-        await axios.delete(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/delete-blog/${blogId}`)
+        await deletePromise
         setBlogs(blogs.filter((blog)=>blog._id !== blogId))
-        alert('Blog delete successfully');
     } catch (error) {
-        console.log(error)
-        alert('Failed to delete blog');
+        console.log("Failed to delete blog",error)
     }
   }
 

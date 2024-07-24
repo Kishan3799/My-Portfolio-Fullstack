@@ -18,11 +18,11 @@ import AdminBlog from './containers/admin/AdminBlog'
 import AdminDashboard from './containers/admin/AdminDashboard'
 import axios from 'axios'
 import Sidebar from './component/Sidebar'
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [auth , setAuth] = useState(false);
-
   useEffect(()=>{
     const checkAuth = async()=> {
       try{
@@ -35,7 +35,7 @@ const App = () => {
     };
 
     checkAuth();
-  }, []);
+  },[]);
 
   return (
     <>
@@ -59,6 +59,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </main>
+    <ToastContainer/>
     </>
   )
 }

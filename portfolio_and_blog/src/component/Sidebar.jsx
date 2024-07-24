@@ -2,6 +2,7 @@ import React from 'react'
 import './SideBar.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import {toast} from 'react-toastify'
 
 
 
@@ -9,14 +10,27 @@ const Sidebar = ({setAuth}) => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    try {
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/admin_user/logout`, {}, { withCredentials: true });
-      setAuth(false)
-      alert("Logout successfully");
-      navigate("/")
+    const loggoutPromise = axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/admin_user/logout`, {}, { withCredentials: true });
 
+    toast.promise(
+      loggoutPromise,
+      {
+        pending:"Logging out...",
+        success:"User loggout successfully",
+        error: {
+          render({data}){
+            return data.response?.data?.message || "Loggout failed"
+          }
+        }
+      }
+    )
+
+    try {
+      await loggoutPromise
+      setAuth(false)
+      navigate("/")
     } catch (error) {
-      alert("Failed to logout. Please try again.");
+      console.log("Failed to logout. Please try again.", error);
     }
   };
 

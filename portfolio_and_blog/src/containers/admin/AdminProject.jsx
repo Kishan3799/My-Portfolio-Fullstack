@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./AdminProject.css";
 import axios from "axios";
+import {toast} from "react-toastify"
+
 
 const AdminProject = () => {
   const [techStack, setTechStack] = useState([]);
@@ -59,15 +61,29 @@ const AdminProject = () => {
       formData.append(`techStack[${index}]`, tech);
     });
 
+    const createProjectPromise = axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/projects/create_project`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      withCredentials:true
+    })
+
+    toast.promise(
+      createProjectPromise,
+      {
+        pending:"Uploading in...",
+        success: "Project is added successfully",
+        error:{
+          render({data}){
+            return data.response?.data?.message || "Project creation is failed"
+          }
+        }
+      }
+    )
+
     try {
 
-        const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/projects/create_project`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          },
-        })
-        alert("Project is added successfully")
-        console.log("Project is Added Successfully", response.data);
+        const response = await createProjectPromise
         setDesc("")
         setGitLInk("")
         setTag("")
@@ -77,7 +93,7 @@ const AdminProject = () => {
         setImage(null)
         setVideo(null)
     } catch (error) {
-      console.log(error);
+      console.log("Project creation is failed",error);
     }
   };
 

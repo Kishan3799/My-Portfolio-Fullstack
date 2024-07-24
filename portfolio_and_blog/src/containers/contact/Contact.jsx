@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Contact.css";
 import axios from "axios";
+import { toast } from "react-toastify";
 const Contact = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -13,21 +14,35 @@ const Contact = () => {
     formData.append('userName', userName);
     formData.append('userEmail', userEmail);
     formData.append('userMessage', userMessage);
-    try {
-      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/contact`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      alert("Message Send Successfully")
-      console.log("Message Send Successfully", response.data);
 
+    const contactPromise = axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/contact`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      withCredentials:true
+    });
+
+    toast.promise(
+      contactPromise,
+      {
+        pending:"Sending...",
+        success:"Message send successfully",
+        error:{
+          render({data}){
+            return data.response?.data?.message || "Message is not send"
+          }
+        }
+      }
+    )
+
+    try {
+      const response = await contactPromise
       setUserEmail("")
       setUserName("")
       setUserMessage("")
 
     } catch (error) {
-      console.error(error)
+      console.error("Message is not send",error)
     }  
   };
 

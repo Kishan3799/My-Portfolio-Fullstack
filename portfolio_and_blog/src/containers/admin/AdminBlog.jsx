@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import "./AdminBlog.css";
 import JoditEditor from "jodit-react";
 import axios from "axios";
+import {toast} from 'react-toastify'
+
 
 const AdminBlog = () => {
   const [blogImage, setBlogImage] = useState(null);
@@ -28,16 +30,31 @@ const AdminBlog = () => {
     formData.append('blogContent', blogContent)
     formData.append('blog_cover_image', blogImage)
 
-    try {
-      const respnse = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/create_blog`, formData, {
-        headers : { 
-          'Content-Type': 'multipart/form-data'
+    const createBlogPromis = axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/blogs/create_blog`, formData, {
+      headers : { 
+        'Content-Type': 'multipart/form-data'
+      },
+      withCredentials:true
+    })
+
+    toast.promise(
+      createBlogPromis,
+      {
+        pending:"Uploading in...",
+        success:"Blog is created successfully",
+        error: {
+          render({data}){
+            return data.response?.data?.message || "Blog creation is failed"
+          }
         }
-      })
-      alert("Blog is created successfully")
-      console.log("Blog is created successfully", respnse);
+      }
+    )
+
+    try {
+      const respnse = await createBlogPromis
+
     } catch (error) {
-      console.log(error)
+      console.log("Blog creation is failed",error)
     }
   };
 
