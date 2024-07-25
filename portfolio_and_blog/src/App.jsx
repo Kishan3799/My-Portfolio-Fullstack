@@ -21,6 +21,9 @@ import Sidebar from './component/Sidebar'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
+
+axios.defaults.withCredentials = true;
+
 const App = () => {
   const [auth , setAuth] = useState(false);
   useEffect(()=>{

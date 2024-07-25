@@ -50,10 +50,10 @@ const loginAdmin = asyncHandler( async (req, res) => {
     // const loggedInUser = await User.findById(user._id).select("-password");
 
     const options = {
-        // expires: new Date(Date.now() + 600000),
         httpOnly:true,
         secure:true,
-        sameSite: 'Strict'
+        sameSite: 'None',
+        expires: new Date(Date.now() + 600000)
     }
 
     return res
@@ -74,10 +74,10 @@ const loginAdmin = asyncHandler( async (req, res) => {
 const loggout = asyncHandler( async (req, res) => {
 
     const options = {
-        // expires: new Date(0),
         httpOnly:true,
         secure:true,
-        sameSite:'Strict'
+        sameSite:'None',
+        expires: new Date(Date.now() + 600000)
     }
 
     return res
