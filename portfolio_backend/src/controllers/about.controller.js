@@ -27,7 +27,7 @@ const createAboutDetail = asyncHandler(async (req,res) => {
 
     const about = await About.create({
         about_description:aboutDescription,
-        profileImage: profileImage.url,
+        profileImage: profileImage.secure_url,
         user: req.user.id
     })
 
@@ -58,7 +58,7 @@ const updateProfileImage = asyncHandler(async (req, res) => {
         req.params.id,
         {
             $set:{
-                profileImage: profileImage.url
+                profileImage: profileImage.secure_url
             }
         },
         {new:true}

@@ -57,7 +57,7 @@ const createBlog = asyncHandler(async( req, res)=>{
         blog_auther : req.user.id,
         blog_title : blogTitle,
         blog_short_summary: blogShortSummary,
-        blog_cover_image: blogCoverImage.url,
+        blog_cover_image: blogCoverImage.secure_url,
         blog_content:blogContent
     })
 
@@ -97,7 +97,7 @@ const updateBlogById = asyncHandler(async(req, res)=>{
             blog_auther : req.user.id,
             blog_title : blogTitle,
             blog_short_summary: blogShortSummary,
-            blog_cover_image: blogCoverImage.url,
+            blog_cover_image: blogCoverImage.secure_url,
             blog_content:blogContent
         },
         { new:true},

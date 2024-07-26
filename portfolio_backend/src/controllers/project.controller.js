@@ -31,7 +31,7 @@ const createProject = asyncHandler(async (req, res) => {
                 throw new ApiError(400, "Project image is required");
             }
 
-            return projectImage.url;
+            return projectImage.secure_url;
         })
     );
 
@@ -43,7 +43,7 @@ const createProject = asyncHandler(async (req, res) => {
             throw new ApiError(400, "Failed to upload project video");
         }
 
-        projectVideoUrl = projectVideo.url;
+        projectVideoUrl = projectVideo.secure_url;
     }
 
     const project = await Project.create({
@@ -92,7 +92,7 @@ const updateProject = asyncHandler(async (req, res) => {
                 throw new ApiError(400, "Project image is required");
             }
 
-            return projectImage.url;
+            return projectImage.secure_url;
         })
     );
 
@@ -104,7 +104,7 @@ const updateProject = asyncHandler(async (req, res) => {
             throw new ApiError(400, "Failed to upload project video");
         }
 
-        projectVideoUrl = projectVideo.url;
+        projectVideoUrl = projectVideo.secure_url;
     }
 
     const projectById = await Project.findByIdAndUpdate(
