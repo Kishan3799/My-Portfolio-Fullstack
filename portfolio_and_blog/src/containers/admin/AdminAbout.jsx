@@ -50,7 +50,7 @@ const AdminAbout = () => {
 
     try {
       const response = await createAboutPromis
-      console.log(response)
+      // console.log(response)
     } catch (error) {
       console.log(error || "Something went wrong")
     }

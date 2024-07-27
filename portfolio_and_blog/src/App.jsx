@@ -34,6 +34,7 @@ const App = () => {
         setAuth(true);
       }catch(err){
         setAuth(false);
+        console.log("Unauthrized")
       }
     };
 

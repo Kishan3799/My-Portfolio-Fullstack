@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { dateFormatter } from "../../../utils/DateFormater";
 
 const BlogItem = ({props}) => {
-  console.log(props)
+  // console.log(props)
 
   const navigate = useNavigate();
 

@@ -2,31 +2,43 @@ import React, { useEffect, useState } from "react";
 import "./Project.css";
 import ProjectDetailsAside from "../../component/ProjectDetailsAside";
 import axios from "axios";
+import { FETCH_STATUS } from "../../utils/fetchStatus";
+import Loader from "../../component/Loader";
 
 const Project = () => {
   const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const [status, setStatus] = useState(FETCH_STATUS.IDLE)
+
+  const fetchProjects = async () => {
+    try {
+      setStatus(FETCH_STATUS.LOADING)
+      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/projects/all_projects`,{withCredentials:true});
+      // console.log(response.data.data);
+      const projectData = response.data.data
+      if (response.data && Array.isArray(response.data.data)) {
+        setProjects(projectData);
+        setFilteredProjects(projectData);
+        setStatus(FETCH_STATUS.SUCCESS)
+      } else {
+        console.error("Unexpected response structure:", response);
+        setStatus(FETCH_STATUS.ERROR)
+      }
+    } catch (error) {
+      console.error("Error fetching projects:", error);
+      setStatus(FETCH_STATUS.ERROR)
+    }
+  };
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/projects/all_projects`,{withCredentials:true});
-        console.log(response.data.data);
-        if (response.data && Array.isArray(response.data.data)) {
-          setProjects(response.data.data);
-          setFilteredProjects(response.data.data);
-        } else {
-          console.error("Unexpected response structure:", response);
-        }
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
-    };
-
     fetchProjects();
   }, []);
+
+  const isLoading = status === FETCH_STATUS.LOADING;
+  const isSuccess = status === FETCH_STATUS.SUCCESS;
+  const isError = status === FETCH_STATUS.ERROR;
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -46,6 +58,8 @@ const Project = () => {
     }
   };
 
+  if(isLoading) return <Loader/>
+
   return (
     <section className="app__project container">
       <h2 className="app__project_title">Projects</h2>
@@ -59,7 +73,7 @@ const Project = () => {
       </div>
 
       <div className="app__project-portfolio">
-        {filteredProjects.length > 0 ? (
+        {isSuccess && (filteredProjects.length > 0 ? (
           filteredProjects.map((project, index) => (
             <article
               key={index}
@@ -91,7 +105,7 @@ const Project = () => {
           ))
         ) : (
           <p>No projects available</p>
-        )}
+        ))}
 
         {/* Render the aside section if a project is selected */}
         {isOverlayVisible && (

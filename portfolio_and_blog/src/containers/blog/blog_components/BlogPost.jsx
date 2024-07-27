@@ -5,7 +5,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import {dateFormatter} from '../../../utils/DateFormater'
 const BlogPost = () => {
   const location = useLocation();
-  console.log(location.state.blogData)
+  // console.log(location.state.blogData)
   const currentBlogData = location.state.blogData
   
 
