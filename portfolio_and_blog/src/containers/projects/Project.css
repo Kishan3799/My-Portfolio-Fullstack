@@ -92,7 +92,7 @@
 .app__project-card .app__project-content{
     color: var(--color-white);
     position: relative;
-    z-index: 3;
+    z-index: 5;
     opacity: 0;
     transform: translateY(-30px);
     transition: all 0.5s;
@@ -107,6 +107,7 @@
     margin-bottom: 1rem;
     padding-right: 1rem;
     padding-left: 1rem;
+    font-weight: var(--font-bold);
 }
 
 .project-description{
@@ -114,7 +115,7 @@
     margin-bottom: 1rem;
     padding-right: 1rem;
     padding-left: 1rem;
-    font-weight: var(--font-medium);
+    font-weight: var(--font-light);
 }
 
 .app__project-technology{
